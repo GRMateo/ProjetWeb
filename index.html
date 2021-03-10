@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projet de Javascript</title>
+    <title>Projet de Javascript - Jeu réalisé par Pierre Sénéchal & Augustin Mariage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="game.css" />
+    <script src="./Javascript/chronometre.js"></script>   
+    <script src="./Javascript/pions.js"></script>
+    <script src="./Javascript/plateau.js"></script>
+    <script src="./Javascript/game.js"></script>   
   </head>
-  <body>  
-	<h1>On n'arrête pas un char avec des politesses</h1>
-    <script type="text/javascript" src="main.js"></script>
-    <p>Petit test vitec fait les mecs.</p>
+ 
+  <span id="chronotime">0:00:00</span>
+  <body onload = "chronoStart();">
+
+    <p id= "player1">PLAYER 1</p>
+
+    <table id="plateau">
+    </table>
+    
+    <p id = "player2">PLAYER 2</p>
+
+    <script type="text/javascript" src="./Javascript/main.js"></script>
+
   </body>
 </html>

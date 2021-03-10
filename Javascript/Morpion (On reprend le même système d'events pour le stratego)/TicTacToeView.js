@@ -32,8 +32,8 @@ class TicTacToeView{
         })
 
         let grille = document.getElementById("morpion");
-        for (let x = 0; x < 3; x++) {
-            for (let y = 0; y < 3; y++) {
+        for (let x = 0; x < 10; x++) {
+            for (let y = 0; y < 10; y++) {
                 grille.rows[x].cells[y].addEventListener('click', () => { // Adding listeners for every case to know when clicked
                     this.playIt(x,y); 
                 });
@@ -50,7 +50,7 @@ class TicTacToeView{
             });
             if(this.game.hasWinner()){ // If someone won then we display who won
                 document.getElementById("player_number").style.color = "white";
-                if(this.game.getWinner() ===0) document.getElementById("player_number").textContent = "GG Player 2 !";
+                if(this.game.getWinner() === 0) document.getElementById("player_number").textContent = "GG Player 2 !";
                 else document.getElementById("player_number").textContent = "GG Player 1 !";
             }
             else{ // If the game has no winner, then it's a tie (=draw, equality)
