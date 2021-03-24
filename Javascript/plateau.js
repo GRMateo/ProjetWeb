@@ -114,7 +114,6 @@ class plateau{
                         for(let z=1;z<13;z++){
                             if(j==0) {
                                 if(this.array1[i][j].Id == z){
-
                                     plateau=document.getElementById("plateau");
                                     tr = plateau.appendChild(document.createElement('tr'));
                                     td = tr.appendChild(document.createElement('td'));

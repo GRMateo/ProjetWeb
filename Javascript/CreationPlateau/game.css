@@ -58,6 +58,11 @@ td {
     Background-position : center center
 }
 
+.croix{
+    background-image:url('images/croix.png');
+    Background-position : center center
+}
+
 /* Roles */
 .terre1{
     background-image:url('images/flag.png');
