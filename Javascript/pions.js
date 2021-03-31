@@ -1,6 +1,6 @@
 class Pions 
 {
-    constructor(Id, Number, Name, Grade, Player1, Player2, State1, State2, Imo)
+    constructor(Id, Number, Name, Grade, Player1, Player2, State1, State2, Imo) // On construit un pion, ici c'est la classe générale qui regroupera différents pions
     {
         this.Id = Id;
         this.Number = Number;

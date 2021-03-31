@@ -1,3 +1,3 @@
 # ProjetWeb
 
-Je test un push les gars.
+Jeu fonctionnel (manque la partie serveur évidemment hein).

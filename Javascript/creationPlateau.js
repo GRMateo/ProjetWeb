@@ -1,4 +1,4 @@
-class Game {
+class GameJoueur {
 
     constructor(game, name) { // Default constructor
         this.name = name;
@@ -6,21 +6,7 @@ class Game {
         this.click1 = [];
         this.click2 = [];
         this.tab_size = [1,1,1,2,3,4,4,4,5,8,1,6];
-        this.grid = new Array(12);
-        this.arrayPlayer = new Array(4);
-        this.fulfillGrid();
         this.listeneur(); // We call the listeners
-    }
-
-    fulfillGrid(){
-        for(let i=0;i<12;i++)
-        {
-            this.grid = i;
-            if(i<4)
-            {
-                this.arrayPlayer[i] = new Array(10);
-            }
-        }
     }
 
     listeneur(){
@@ -34,6 +20,7 @@ class Game {
                     {
                         this.click2 = [i, j];
                         this.placeCase();
+                        if(this.isGridFull()==true) this.buttonSendGrid();
                     }
                 });
             }
@@ -48,8 +35,7 @@ class Game {
         }
     }
 
-    caseEmpty(i, j)
-    {
+    caseEmpty(i, j){
         if(this.game.array1[i][j] != undefined) return false;
         else return true;
     }
@@ -70,7 +56,6 @@ class Game {
         {
             return false;
         }
-
     }
 
     placeCase(){
@@ -102,4 +87,33 @@ class Game {
         this.click2 = [-3, -3];
     }
 
+    isGridFull(){
+        for(let i=0; i<4;i++)
+        {
+            for(let j=0; j<10;j++)
+            {
+                if(this.game.array1[i][j]== undefined) return false;
+            }
+        }
+        return true;
+    }
+
+    buttonSendGrid(){
+        //<input type="submit" value="Envoyer le formulaire">
+        let div= document.getElementById("boutonEnvoi");
+        let submit = document.createElement("button");
+        submit.id = "bouton";
+        submit.value="Envoyer";
+        div.appendChild(submit);
+        let sub = document.getElementById("bouton");
+        let appuiBouton=0;
+        sub.addEventListener('click', () => { 
+            if(appuiBouton ==0) 
+            {
+                console.log("Tableau du joueur ", this.game.Player+1, " Envoyé");
+                appuiBouton++;
+                //socket.emit('TableauJoueur', this.game.array1);
+            }
+        });
+    }
 }

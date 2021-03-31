@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Projet de Javascript - Jeu réalisé par Pierre Sénéchal & Augustin Mariage</title>
+    <title>Stratégo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="game.css" />
     <script src="./Javascript/chronometre.js"></script>   
@@ -10,17 +10,10 @@
     <script src="./Javascript/game.js"></script>   
   </head>
  
-  <span id="chronotime">0:00:00</span>
-  <body onload = "chronoStart();">
-
-    <p id= "player1">PLAYER 1</p>
-
-    <table id="plateau">
+  <span id="chronotime">0:00:00</span> <!-- Chrono affiché sur la page pour voir le temps de jeu en continu -->
+  <body onload = "chronoStart();"> <!-- On démarre le chrono à l'exécution de la page -->
+    <table id="plateau"> <!-- On affiche le plateau de jeu -->
     </table>
-    
-    <p id = "player2">PLAYER 2</p>
-
-    <script type="text/javascript" src="./Javascript/main.js"></script>
-
+    <script type="text/javascript" src="./Javascript/main.js"></script> <!-- Exécution du javascript pour faire tourner le jeu -->
   </body>
 </html>
