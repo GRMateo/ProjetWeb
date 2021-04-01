@@ -6,6 +6,7 @@ class Game {
         this.click1 = [];
         this.click2 = [];
         this.pawnsEaten = [];
+        this.currentPlayer=0;
         this.listeneur(); // We call the listeners
     }
 
@@ -62,15 +63,23 @@ class Game {
         let b=this.click2[1];
         let tab = document.getElementById("plateau");
         if(param==0){
-            tab.rows[a].cells[b].className = "terre"+this.game.array1[x][y].Id;
+            if(this.currentPlayer == 0 && this.game.array1[x][y].Player == 0){
+                tab.rows[a].cells[b].className = "terre"+this.game.array1[x][y].Id;
+            }
+            else if(this.currentPlayer == 1 && this.game.array1[x][y].Player == 1){
+                tab.rows[a].cells[b].className = "terre"+this.game.array1[x][y].Id;
+            }
+            else {
+                tab.rows[a].cells[b].className = "terre"
+            }
             tab.rows[x].cells[y].className = "terre";
             this.game.array1[a][b] = this.game.array1[x][y];
-            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1, -1);
+            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1);
         }
         else if(param==1){
             tab.rows[x].cells[y].className = "terre";
             this.pawnsEaten.push(this.game.array1[x][y]);
-            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1, -1);
+            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1);
         }
         else if(param==2){
             if (this.game.array1[a][b].Name == "drapeau"){
@@ -85,15 +94,15 @@ class Game {
             tab.rows[x].cells[y].className = "terre";
             this.pawnsEaten.push(this.game.array1[a][b]);
             this.game.array1[a][b] = this.game.array1[x][y];
-            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1, -1);
+            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1);
         }
         else if(param==3){
             tab.rows[a].cells[b].className = "terre";
             tab.rows[x].cells[y].className = "terre";
             this.pawnsEaten.push(this.game.array1[x][y]);
             this.pawnsEaten.push(this.game.array1[a][b]);
-            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1, -1);
-            this.game.array1[a][b] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1, -1);
+            this.game.array1[x][y] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1);
+            this.game.array1[a][b] = new Pions(0, -1, "Satan", -1, -1, -1, -1, -1);
         }
         this.click1 = [-3, -3];
         this.click2 = [-3, -3];
