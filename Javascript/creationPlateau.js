@@ -5,6 +5,7 @@ class GameJoueur {
         this.game = game;
         this.click1 = [];
         this.click2 = [];
+        this.currentPlayer=0;
         this.tab_size = [1,1,1,2,3,4,4,4,5,8,1,6];
         this.listeneur(); // We call the listeners
         this.generationAleatoire();
@@ -39,18 +40,34 @@ class GameJoueur {
                 do{
                     i = this.getRandomInt(1,13);
                     console.log("i: ", i);
-                    if(i==1) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 1, 0, 1, 1, 1);
-                    else if(i==2) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 1, 0, 1, 1, 0);
-                    else if(i==3) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 1,0, 1, 1, 0);
-                    else if(i==4) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 1, 0, 1, 1, 0);
-                    else if(i==5) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 1, 0, 1, 1, 0);
-                    else if(i==6) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 1, 0, 1, 1, 0);
-                    else if(i==7) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 1, 0, 1, 1, 0);
-                    else if(i==8) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 1, 0, 1, 1, 0);
-                    else if(i==9) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3, 1, 0, 1, 1, 0);
-                    else if(i==10) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 1, 0, 1, 1, 0);
-                    else if(i==11) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 1, 0, 1, 1, 0);
-                    else if(i==12) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 1, 0, 1, 1, 1);
+                    if(this.currentPlayer==0){
+                        if(i==1) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 0, 1, 1, 1);
+                        else if(i==2) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 0, 1, 1, 0);
+                        else if(i==3) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 0, 1, 1, 0);
+                        else if(i==4) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 0, 1, 1, 0);
+                        else if(i==5) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 0, 1, 1, 0);
+                        else if(i==6) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 0, 1, 1, 0);
+                        else if(i==7) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 0, 1, 1, 0);
+                        else if(i==8) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 0, 1, 1, 0);
+                        else if(i==9) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3, 0, 1, 1, 0);
+                        else if(i==10) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 0, 1, 1, 0);
+                        else if(i==11) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 0, 1, 1, 0);
+                        else if(i==12) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 0, 1, 1, 1);
+                    }   
+                    else if(this.currentPlayer==1){
+                        if(i==1) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 1, 1, 1, 1);
+                        else if(i==2) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 1, 1, 1, 0);
+                        else if(i==3) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 1, 1, 1, 0);
+                        else if(i==4) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 1, 1, 1, 0);
+                        else if(i==5) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 1, 1, 1, 0);
+                        else if(i==6) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 1, 1, 1, 0);
+                        else if(i==7) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 1, 1, 1, 0);
+                        else if(i==8) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 1, 1, 1, 0);
+                        else if(i==9) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3, 1, 1, 1, 0);
+                        else if(i==10) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 1, 1, 1, 0);
+                        else if(i==11) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 1, 1, 1, 0);
+                        else if(i==12) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 1, 1, 1, 1);
+                    } 
                     tab_size[i-1]-=1;
                 }
                 while(tab_size[i-1] < 0)
@@ -125,19 +142,34 @@ class GameJoueur {
         let i=this.click1[0];
         let x=this.click2[0];
         let y=this.click2[1];
-        if(i==0) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 1, 0, 1, 1, 1);
-        else if(i==1) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 1, 0, 1, 1, 0);
-        else if(i==2) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 1,0, 1, 1, 0);
-        else if(i==3) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 1, 0, 1, 1, 0);
-        else if(i==4) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 1, 0, 1, 1, 0);
-        else if(i==5) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 1, 0, 1, 1, 0);
-        else if(i==6) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 1, 0, 1, 1, 0);
-        else if(i==7) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 1, 0, 1, 1, 0);
-        else if(i==8) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3, 1, 0, 1, 1, 0);
-        else if(i==9) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 1, 0, 1, 1, 0);
-        else if(i==10) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 1, 0, 1, 1, 0);
-        else if(i==11) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 1, 0, 1, 1, 1);
-        
+        if(this.currentPlayer==0){
+            if(i==0) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 0, 1, 1, 1);
+            else if(i==1) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 0, 1, 1, 0);
+            else if(i==2) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 0, 1, 1, 0);
+            else if(i==3) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 0, 1, 1, 0);
+            else if(i==4) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 0, 1, 1, 0);
+            else if(i==5) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 0, 1, 1, 0);
+            else if(i==6) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 0, 1, 1, 0);
+            else if(i==7) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 0, 1, 1, 0);
+            else if(i==8) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3,0, 1, 1, 0);
+            else if(i==9) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 0, 1, 1, 0);
+            else if(i==10) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 0, 1, 1, 0);
+            else if(i==11) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 0, 1, 1, 1);
+        }
+        else if(this.currentPlayer==1){
+            if(i==0) this.game.array1[x][y] = new Pions(1, 1, "drapeau", 0, 1, 1, 1, 1);
+            else if(i==1) this.game.array1[x][y] = new Pions(2, 1, "maréchal", 10, 1, 1, 1, 0);
+            else if(i==2) this.game.array1[x][y] = new Pions(3, 1, "général", 9, 1, 1, 1, 0);
+            else if(i==3) this.game.array1[x][y] = new Pions(4, 2, "colonel", 8, 1, 1, 1, 0);
+            else if(i==4) this.game.array1[x][y] = new Pions(5, 3, "commandant", 7, 1, 1, 1, 0);
+            else if(i==5) this.game.array1[x][y] = new Pions(6, 4, "capitaine", 6, 1, 1, 1, 0);
+            else if(i==6) this.game.array1[x][y] = new Pions(7, 4, "lieutenant", 5, 1, 1, 1, 0);
+            else if(i==7) this.game.array1[x][y] = new Pions(8, 4, "sergent", 4, 1, 1, 1, 0);
+            else if(i==8) this.game.array1[x][y] = new Pions(9, 5, "démineur", 3, 1, 1, 1, 0);
+            else if(i==9) this.game.array1[x][y] = new Pions(10, 8, "éclaireur", 2, 1, 1, 1, 0);
+            else if(i==10) this.game.array1[x][y] = new Pions(11, 1, "espion", 1, 1, 1, 1, 0);
+            else if(i==11) this.game.array1[x][y] = new Pions(12, 6, "bombe", 11, 1, 1, 1, 1);
+        }
         let tab = document.getElementById("plateau");
         tab.rows[x].cells[y].className = "terre"+this.game.array1[x][y].Id;
 
