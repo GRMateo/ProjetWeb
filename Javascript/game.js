@@ -6,7 +6,6 @@ class Game {
         this.click1 = [];
         this.click2 = [];
         this.pawnsEaten = [];
-        this.currentPlayer=0;
         this.listeneur(); // We call the listeners
     }
 
@@ -15,10 +14,11 @@ class Game {
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
                 tab.rows[i].cells[j].addEventListener('click', () => {
+                    console.log(tab.rows[i].cells[j]);
+                    console.log(this.game.array1[i][j]);
                     if ((this.click1[0] > -1) && (this.click1[1] > -1)){
                         this.click2 = [i, j];
-                        let player = this.game.getCurrentPlayer();
-                        if (this.game.getCaseState(i, j) && (this.isImo()==false) && (this.column() || this.line()) && this.verifCase(player))
+                        if (this.game.getCaseState(i, j) && (this.isImo()==false) && (this.column() || this.line()) && this.verifCase(this.game.getCurrentPlayer()))
                         {
                             this.game.nbMoves++;
                         }
@@ -63,14 +63,14 @@ class Game {
         let b=this.click2[1];
         let tab = document.getElementById("plateau");
         if(param==0){
-            if(this.currentPlayer == 0 && this.game.array1[x][y].Player == 0){
+            if(this.game.getCurrentPlayer() == 0 && this.game.array1[x][y].Player == 0){
                 tab.rows[a].cells[b].className = "terre"+this.game.array1[x][y].Id;
             }
-            else if(this.currentPlayer == 1 && this.game.array1[x][y].Player == 1){
+            else if(this.game.getCurrentPlayer() == 1 && this.game.array1[x][y].Player == 1){
                 tab.rows[a].cells[b].className = "terre"+this.game.array1[x][y].Id;
             }
             else {
-                tab.rows[a].cells[b].className = "terre"
+                tab.rows[a].cells[b].className = "unknown"
             }
             tab.rows[x].cells[y].className = "terre";
             this.game.array1[a][b] = this.game.array1[x][y];
@@ -113,7 +113,7 @@ class Game {
         let y=this.click1[1];
         let a=this.click2[0];
         let b=this.click2[1];
-        if(((this.game.array1[x][y].Player1 == 1 && player == 0) && ((this.game.array1[a][b].Player2 == 1 && player == 0) || this.game.array1[a][b].Name==("Satan"))) || ((this.game.array1[x][y].Player2 == 1 && player == 1) && ((this.game.array1[a][b].Player1 == 1 && player == 1) || this.game.array1[a][b].Name==("Satan"))))
+        if(((this.game.array1[x][y].Player == 0 && player == 0) && ((this.game.array1[a][b].Player == 1 && player == 0) || this.game.array1[a][b].Name==("Satan"))) || ((this.game.array1[x][y].Player == 1 && player == 1) && ((this.game.array1[a][b].Player == 0 && player == 1) || this.game.array1[a][b].Name==("Satan"))))
         {   
             if(this.game.array1[a][b].Name==("Satan"))
             {

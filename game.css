@@ -55,22 +55,22 @@ td {
 
 .unknown{
     background-image:url('images/unknown.png');
-    Background-position : center center
+    Background-position : center center;
 }
 
 /* Roles */
 .terre1{
     background-image:url('images/flag.png');
-    Background-position : center center
+    Background-position : center center;
 }
 
 .terre2{
     background-image:url('images/marshal.png');
-    Background-position : center center
+    Background-position : center center;
 }
 .terre3{
     background-image:url('images/general.png');
-    Background-position : center center
+    Background-position : center center;
 }
 .terre4{
     background-image:url('images/colonel.png');
